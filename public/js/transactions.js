@@ -57,7 +57,7 @@ $(document).ready(function(){
 				}
 			
 				//prepend 'select item' to the select option
-				cloned.find(".selectedItemDefault").prepend("<option value='' selected>Select Item</option>");
+				cloned.find(".selectedItemDefault").prepend("<option value='' selected>Chọn sản phẩm</option>");
 				
 				resolve(selectedItemsArr);
 			});
@@ -346,7 +346,7 @@ $(document).ready(function(){
         if(isNaN(amountTendered) || (amountTendered === '0.00') || !modeOfPayment || (amountTendered < cumAmount)){
             isNaN(amountTendered) || (amountTendered === '0.00') ? $("#amountTenderedErr").html("required") : $("#amountTenderedErr").html("");
             !modeOfPayment ? $("#modeOfPaymentErr").html("Select mode of payment") : $("#modeOfPaymentErr").html("");
-            amountTendered < cumAmount ? $("#amountTenderedErr").html("Amount cannot be less than "+cumAmount) : "";
+            amountTendered < cumAmount ? $("#amountTenderedErr").html("Phải lớn hơn "+cumAmount) : "";
             
             return;
         }
@@ -431,7 +431,7 @@ $(document).ready(function(){
 
                 var _aoi = JSON.stringify(arrToSend);//aoi = "All orders info"
 
-                displayFlashMsg("Processing transaction...", spinnerClass, "", "");
+                displayFlashMsg("Thực hiện giao dịch", spinnerClass, "", "");
 
                 //send details to server
                 $.ajax({
@@ -547,7 +547,7 @@ $(document).ready(function(){
                     //if the value doesn't match the code of any item
                     else{
                         //display message telling user item not found
-                        $("#itemCodeNotFoundMsg").css('color', 'red').html("Item not found. Item may not be registered.");
+                        $("#itemCodeNotFoundMsg").css('color', 'red').html("Không có sản phẩm ứng với mã này");
                     }
                 }
             }
@@ -568,11 +568,11 @@ $(document).ready(function(){
         $("#newTransDiv").toggleClass('collapse');
         
         if($("#newTransDiv").hasClass('collapse')){
-            $(this).html("<i class='fa fa-plus'></i> New Transaction");
+            $(this).html("<i class='fa fa-plus'></i> Thêm giao dịch");
         }
         
         else{
-            $(this).html("<i class='fa fa-minus'></i> New Transaction");
+            $(this).html("<i class='fa fa-minus'></i> Thêm giao dịch");
             
             //remove error messages
             $("#itemCodeNotFoundMsg").html("");
@@ -595,7 +595,7 @@ $(document).ready(function(){
         $("#itemCodeNotFoundMsg").html("");
         
         //change main "new transaction" button back to default
-        $("#showTransForm").html("<i class='fa fa-plus'></i> New Transaction");
+        $("#showTransForm").html("<i class='fa fa-plus'></i> Thêm giao dịch");
     });
     
     
@@ -652,7 +652,7 @@ $(document).ready(function(){
         var toDate = $("#transTo").val();
         
         if(!fromDate){
-            $("#transFromErr").html("Select date to start from");
+            $("#transFromErr").html("Chọn ngày bắt đầu");
             
             return;
         }
@@ -881,7 +881,7 @@ function calchadue(){
     var amountTendered = parseFloat($("#amountTendered").val());
 
     if(amountTendered && (amountTendered < cumAmount)){
-        $("#amountTenderedErr").html("Amount cannot be less than &#8358;"+ cumAmount);
+        $("#amountTenderedErr").html("Phải lớn hơn giá trị hàng "+ cumAmount + "VNĐ");
 
         //remove change due if any
         $("#changeDue").html("");

@@ -108,7 +108,7 @@ $(document).ready(function(){
             !itemPrice ? $("#itemPriceErr").text("required") : "";
             !itemCode ? $("#itemCodeErr").text("required") : "";
             
-            $("#addCustErrMsg").text("One or more required fields are empty");
+            $("#addCustErrMsg").text("Chưa điền đầy đủ");
             
             return;
         }
@@ -244,8 +244,8 @@ $(document).ready(function(){
         var itemCode = $("#itemCodeEdit").val();
         
         if(!itemName || !itemPrice || !itemId){
-            !itemName ? $("#itemNameEditErr").html("Item name cannot be empty") : "";
-            !itemPrice ? $("#itemPriceEditErr").html("Item price cannot be empty") : "";
+            !itemName ? $("#itemNameEditErr").html("Không được để trống") : "";
+            !itemPrice ? $("#itemPriceEditErr").html("Không được để trống") : "";
             !itemId ? $("#editItemFMsg").html("Unknown item") : "";
             return;
         }
@@ -258,7 +258,7 @@ $(document).ready(function(){
             data: {itemName:itemName, itemPrice:itemPrice, itemDesc:itemDesc, _iId:itemId, itemCode:itemCode}
         }).done(function(returnedData){
             if(returnedData.status === 1){
-                $("#editItemFMsg").css('color', 'green').html("Item successfully updated");
+                $("#editItemFMsg").css('color', 'green').html("Cập nhật thành công");
                 
                 setTimeout(function(){
                     $("#editItemModal").modal('hide');
@@ -268,7 +268,7 @@ $(document).ready(function(){
             }
             
             else{
-                $("#editItemFMsg").css('color', 'red').html("One or more required fields are empty or not properly filled");
+                $("#editItemFMsg").css('color', 'red').html("Chưa điền đầy đủ");
                 
                 $("#itemNameEditErr").html(returnedData.itemName);
                 $("#itemCodeEditErr").html(returnedData.itemCode);
@@ -315,7 +315,7 @@ $(document).ready(function(){
         var updateType = $("#stockUpdateType").val();
         
         if(updateType && (updateType === 'newStock')){
-            $("#stockUpdateDescription").val("New items were purchased");
+            $("#stockUpdateDescription").val("Sản phẩm đã được thêm vào");
         }
         
         else{
@@ -407,10 +407,10 @@ $(document).ready(function(){
         var itemRow = $(this).closest('tr');//to be used in removing the currently deleted row
         
         if(itemId){
-            var confirm = window.confirm("Are you sure you want to delete item? This cannot be undone.");
+            var confirm = window.confirm("Bạn có thực sự muốn xóa sản phẩm");
             
             if(confirm){
-                displayFlashMsg('Please wait...', spinnerClass, 'black');
+                displayFlashMsg('Chờ...', spinnerClass, 'black');
                 
                 $.ajax({
                     url: appRoot+"items/delete",
@@ -425,7 +425,7 @@ $(document).ready(function(){
                         resetItemSN();
 
                         //display success message
-                        changeFlashMsgContent('Item deleted', '', 'green', 1000);
+                        changeFlashMsgContent('Đã xóa', '', 'green', 1000);
                     }
 
                     else{

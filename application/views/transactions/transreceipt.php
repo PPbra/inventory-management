@@ -6,9 +6,8 @@ defined('BASEPATH') OR exit('');
 <div id="transReceiptToPrint">
     <div class="row">
         <div class="col-xs-12 text-center text-uppercase">
-            <center style='margin-bottom:5px'><img src="<?=base_url()?>public/images/receipt_logo.png" alt="logo" class="img-responsive" width="60px"></center>
-            <b>1410 Store, plot 5, block 2</b>
-            <div>+234 7086201801, +234 7030167606</div>
+            <b>Cửa hàng Hương toản</b>
+            <div>+0964241123</div>
         </div>
     </div>
     <div class="row text-center">
@@ -19,15 +18,15 @@ defined('BASEPATH') OR exit('');
     
     <div class="row" style="margin-top:2px">
         <div class="col-sm-12">
-            <label>Receipt No:</label>
+            <label>Báo cáo số:</label>
             <span><?=isset($ref) ? $ref : ""?></span>
 		</div>
     </div>
     
 	<div class="row" style='font-weight:bold'>
-		<div class="col-xs-4">Item</div>
-		<div class="col-xs-4">QtyxPrice</div>
-		<div class="col-xs-4">Tot(&#8358;)</div>
+		<div class="col-xs-4">Sản phẩm</div>
+		<div class="col-xs-4">Số lượng x Đơn giá</div>
+		<div class="col-xs-4">Tổng cộng (VNĐ)</div>
 	</div>
 	<hr style='margin-top:2px; margin-bottom:0px'>
     <?php $init_total = 0; ?>
@@ -48,13 +47,13 @@ defined('BASEPATH') OR exit('');
     <hr style='margin-top:2px; margin-bottom:0px'>      
     <div class="row">
         <div class="col-xs-12 text-right">
-            <b>Discount(<?=$discountPercentage?>%): &#8358;<?=isset($discountAmount) ? number_format($discountAmount, 2) : 0?></b>
+            <b>Discount(<?=$discountPercentage?>%): <?=isset($discountAmount) ? number_format($discountAmount, 2) : 0?> VNĐ</b>
         </div>
     </div>       
     <div class="row">
         <div class="col-xs-12 text-right">
             <?php if($vatPercentage > 0): ?>
-            <b>VAT(<?=$vatPercentage?>%): &#8358;<?=isset($vatAmount) ? number_format($vatAmount, 2) : ""?></b>
+            <b>VAT(<?=$vatPercentage?>%): <?=isset($vatAmount) ? number_format($vatAmount, 2) : ""?> VNĐ</b>
             <?php else: ?>
             VAT inclusive
             <?php endif; ?>
@@ -62,44 +61,43 @@ defined('BASEPATH') OR exit('');
     </div>      
     <div class="row">
         <div class="col-xs-12 text-right">
-            <b>FINAL TOTAL: &#8358;<?=isset($cumAmount) ? number_format($cumAmount, 2) : ""?></b>
+            <b>Tổng giá trị hàng bán: <?=isset($cumAmount) ? number_format($cumAmount, 2) : ""?> VNĐ</b>
         </div>
     </div>
+    <!-- <hr style='margin-top:5px; margin-bottom:0px'>
+    <div class="row margin-top-5">
+        <div class="col-xs-12">
+            <b>Phương thức thanh toán: Tiền mặt</b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <b>Giá trị bán ra: &#8358;<?=isset($amountTendered) ? number_format($amountTendered, 2) : ""?></b>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <b>Chênh lệch: &#8358;<?=isset($changeDue) ? number_format($changeDue, 2) : ""?></b>
+        </div>
+    </div> -->
     <hr style='margin-top:5px; margin-bottom:0px'>
     <div class="row margin-top-5">
         <div class="col-xs-12">
-            <b>Mode of Payment: <?=isset($_mop) ? str_replace("_", " ", $_mop) : ""?></b>
+            <b>Tên khách hàng: <?=$cust_name?></b>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <b>Amount Tendered: &#8358;<?=isset($amountTendered) ? number_format($amountTendered, 2) : ""?></b>
+            <b>Số điện thoại khách hàng: <?=$cust_phone?></b>
         </div>
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <b>Change: &#8358;<?=isset($changeDue) ? number_format($changeDue, 2) : ""?></b>
-        </div>
-    </div>
-    <hr style='margin-top:5px; margin-bottom:0px'>
-    <div class="row margin-top-5">
-        <div class="col-xs-12">
-            <b>Customer Name: <?=$cust_name?></b>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <b>Customer Phone: <?=$cust_phone?></b>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <b>Customer Email: <?=$cust_email?></b>
+            <b>Email khách hàng: <?=$cust_email?></b>
         </div>
     </div>
     <br>
     <div class="row">
-        <div class="col-xs-12 text-center">Thanks for your patronage</div>
     </div>
 </div>
 <br class="hidden-print">
