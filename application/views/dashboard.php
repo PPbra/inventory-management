@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-exchange"></i></div>
                 <div class="pull-right">
                     <div><?=$totalSalesToday?></div>
-                    <div class="latestStuffsText">Total Sales Today</div>
+                    <div class="latestStuffsText">Tổng số sản phẩm bán hôm nay</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#5cb85c">Number of Items Sold Today</div>
+            <div class="panel-footer text-center" style="color:#5cb85c">Tổng số sản phẩm bán hôm nay</div>
         </div>
     </div>
     <div class="col-sm-4">
@@ -21,10 +21,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-tasks"></i></div>
                 <div class="pull-right">
                     <div><?=$totalTransactions?></div>
-                    <div class="latestStuffsText pull-right">Total Transactions</div>
+                    <div class="latestStuffsText pull-right">Tổng giao dịch</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#f0ad4e">All-time Total Transactions</div>
+            <div class="panel-footer text-center" style="color:#f0ad4e">Tổng số toàn bộ các giao dịch</div>
         </div>
     </div>
     <div class="col-sm-4">
@@ -33,10 +33,10 @@ defined('BASEPATH') OR exit('');
                 <div class="pull-left"><i class="fa fa-shopping-cart"></i></div>
                 <div class="pull-right">
                     <div><?=$totalItems?></div>
-                    <div class="latestStuffsText pull-right">Items in Stock</div>
+                    <div class="latestStuffsText pull-right">Số sản phẩm trong kho</div>
                 </div>
             </div>
-            <div class="panel-footer text-center" style="color:#337ab7">Total Items in Stock</div>
+            <div class="panel-footer text-center" style="color:#337ab7">Tổng số sản phẩm trong kho</div>
         </div>
     </div>
 </div>
@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('');
 
     <div class="col-sm-3">
         <section class="panel form-group-sm">
-            <label class="control-label">Select Account Year:</label>
+            <label class="control-label">Chọn năm:</label>
             <select class="form-control" id="earningAndExpenseYear">
                 <?php $years = range("2016", date('Y')); ?>
                 <?php foreach($years as $y):?>
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('');
         
         <section class="panel">
           <center>
-              <canvas id="paymentMethodChart" width="200" height="200"/></canvas><br>Payment Methods(%)<span id="paymentMethodYear"></span>
+              <canvas id="paymentMethodChart" width="200" height="200"/></canvas><br>Phương thức thanh toán(%)<span id="paymentMethodYear"></span>
           </center>
         </section>
     </div>
@@ -81,13 +81,13 @@ defined('BASEPATH') OR exit('');
 <div class="row margin-top-5">
     <div class="col-sm-3">
         <div class="panel panel-hash">
-            <div class="panel-heading"><i class="fa fa-cart-plus"></i> HIGH IN DEMAND</div>
+            <div class="panel-heading"><i class="fa fa-cart-plus"></i> Sản phẩm có số lượng bán nhiều nhất</div>
             <?php if($topDemanded): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Qty Sold</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng bán</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,20 +100,20 @@ defined('BASEPATH') OR exit('');
                 </tbody>
             </table>
             <?php else: ?>
-            No Transactions
+            Không có giao dịch
             <?php endif; ?>
         </div>
     </div>
     
     <div class="col-sm-3">
         <div class="panel panel-hash">
-            <div class="panel-heading"><i class="fa fa-cart-arrow-down"></i> LOW IN DEMAND</div>
+            <div class="panel-heading"><i class="fa fa-cart-arrow-down"></i> Sản phẩm  có số lượng bán ít nhất</div>
             <?php if($leastDemanded): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Qty Sold</th>
+                        <th>Sản phẩm</th>
+                        <th>Số lượng bán</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,59 +126,59 @@ defined('BASEPATH') OR exit('');
                 </tbody>
             </table>
             <?php else: ?>
-            No Transactions
+            Không có giao dịch
             <?php endif; ?>
         </div>
     </div>
     
     <div class="col-sm-3">
         <div class="panel panel-hash">
-            <div class="panel-heading"><i class="fa fa-money"></i> HIGHEST EARNING</div>
+            <div class="panel-heading"><i class="fa fa-money"></i> Sản phấm bán nhiều giá trị nhất</div>
             <?php if($highestEarners): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Total Earned</th>
+                        <th>Sản phẩm</th>
+                        <th>Giá trị</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach($highestEarners as $get):?>
                     <tr>
                         <td><?=$get->name?></td>
-                        <td>&#8358;<?=number_format($get->totEarned, 2)?></td>
+                        <td><?=number_format($get->totEarned, 2)?> VNĐ</td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
             <?php else: ?>
-            No Transactions
+            Không có giao dịch
             <?php endif; ?> 
         </div>
     </div>
     
     <div class="col-sm-3">
         <div class="panel panel-hash">
-            <div class="panel-heading"><i class="fa fa-money"></i> LOWEST EARNING</div>
+            <div class="panel-heading"><i class="fa fa-money"></i>Sản phẩm bán ít giá trị nhất</div>
             <?php if($lowestEarners): ?>
             <table class="table table-striped table-responsive table-hover">
                 <thead>
                     <tr>
-                        <th>Item</th>
-                        <th>Total Earned</th>
+                        <th>Sản phẩm</th>
+                        <th>Giá trị</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php foreach($lowestEarners as $get):?>
                     <tr>
                         <td><?=$get->name?></td>
-                        <td>&#8358;<?=number_format($get->totEarned, 2)?></td>
+                        <td><?=number_format($get->totEarned, 2)?> VNĐ</td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
             <?php else: ?>
-            No Transactions
+            Không có giao dịch
             <?php endif; ?> 
         </div>
     </div>
@@ -188,16 +188,16 @@ defined('BASEPATH') OR exit('');
 <div class="row">
     <div class="col-sm-6">
         <div class="panel panel-hash">
-            <div class="panel-heading">Daily Transactions</div>
+            <div class="panel-heading">Giao dịch hàng ngày</div>
             <div class="panel-body scroll panel-height">
                 <?php if(isset($dailyTransactions) && $dailyTransactions): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Qty Sold</th>
-                            <th>Tot. Trans</th>
-                            <th>Tot. Earned</th>
+                            <th>Ngày</th>
+                            <th>Số lượng bán</th>
+                            <th>Số giao dịch</th>
+                            <th>Tổng giá trị giao dịch</th>
                         </tr>
                     </thead>
 
@@ -214,13 +214,13 @@ defined('BASEPATH') OR exit('');
                             </td>
                             <td><?=$get->qty_sold?></td>
                             <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?=number_format($get->tot_earned, 2)?> VNĐ</td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
                 </table>
                 <?php else: ?>
-                <li>No Transactions</li>
+                <li>Không có giao dịch</li>
                 <?php endif; ?>
             </div>
         </div>
@@ -229,16 +229,16 @@ defined('BASEPATH') OR exit('');
     
     <div class="col-sm-6">
         <div class="panel panel-hash">
-            <div class="panel-heading">Transactions by Days</div>
+            <div class="panel-heading">Giao dịch theo ngày trong tuần</div>
             <div class="panel-body scroll panel-height">
                 <?php if(isset($transByDays) && $transByDays): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Qty Sold</th>
-                            <th>Tot. Trans</th>
-                            <th>Tot. Earned</th>
+                            <th>Thứ</th>
+                            <th>Số lượng bán</th>
+                            <th>Số giao dịch</th>
+                            <th>Tổng giá trị giao dịch</th>
                         </tr>
                     </thead>
 
@@ -248,13 +248,13 @@ defined('BASEPATH') OR exit('');
                             <td><?=$get->day?>s</td>
                             <td><?=$get->qty_sold?></td>
                             <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?=number_format($get->tot_earned, 2)?> VNĐ</td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
                 </table>
                 <?php else: ?>
-                <li>No Transactions</li>
+                <li>Không có giao dịch</li>
                 <?php endif; ?>
             </div>
         </div>
@@ -266,16 +266,16 @@ defined('BASEPATH') OR exit('');
 <div class="row">
     <div class="col-sm-6">
         <div class="panel panel-hash">
-            <div class="panel-heading">Transactions by Months</div>
+            <div class="panel-heading">Giao dịch theo tháng</div>
             <div class="panel-body scroll panel-height">
                 <?php if(isset($transByMonths) && $transByMonths): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Month</th>
-                            <th>Qty Sold</th>
-                            <th>Tot. Trans</th>
-                            <th>Tot. Earned</th>
+                            <th>Tháng</th>
+                            <th>Số lượng bán</th>
+                            <th>Số giao dịch</th>
+                            <th>Tổng giá trị giao dịch</th>
                         </tr>
                     </thead>
 
@@ -285,13 +285,13 @@ defined('BASEPATH') OR exit('');
                             <td><?=$get->month?></td>
                             <td><?=$get->qty_sold?></td>
                             <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?=number_format($get->tot_earned, 2)?> VNĐ</td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
                 </table>
                 <?php else: ?>
-                <li>No Transactions</li>
+                <li>Không có giao dịch</li>
                 <?php endif; ?>
             </div>
         </div>
@@ -300,16 +300,16 @@ defined('BASEPATH') OR exit('');
     
     <div class="col-sm-6">
         <div class="panel panel-hash">
-            <div class="panel-heading">Transactions by Years</div>
+            <div class="panel-heading">Giao dịch theo năm</div>
             <div class="panel-body scroll panel-height">
                 <?php if(isset($transByYears) && $transByYears): ?>
                 <table class="table table-responsive table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Year</th>
-                            <th>Qty Sold</th>
-                            <th>Tot. Trans</th>
-                            <th>Tot. Earned</th>
+                            <th>Năm</th>
+                            <th>Số lượng bán</th>
+                            <th>Số giao dịch</th>
+                            <th>Tổng giá trị giao dịch</th>
                         </tr>
                     </thead>
 
@@ -319,13 +319,13 @@ defined('BASEPATH') OR exit('');
                             <td><?=$get->year?></td>
                             <td><?=$get->qty_sold?></td>
                             <td><?=$get->tot_trans?></td>
-                            <td>&#8358;<?=number_format($get->tot_earned, 2)?></td>
+                            <td><?=number_format($get->tot_earned, 2)?> VNĐ</td>
                         </tr>
                         <?php endforeach;?>
                     </tbody>
                 </table>
                 <?php else: ?>
-                <li>No Transactions</li>
+                <li>Không có giao dịch</li>
                 <?php endif; ?>
             </div>
         </div>

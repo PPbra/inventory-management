@@ -33,7 +33,7 @@
                     <td><?=  str_replace("_", " ", "Thanh toán tiền mặt")?></td>
                     <td><?=$get->staffName?></td>
                     <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
-                    <td><?= date('jS M, Y h:ia', strtotime($get->transDate)) ?></td>
+                    <td><?= date('d-m-y', strtotime($get->transDate)) ?></td>
                 </tr>
                 <?php $sn++; ?>
                 <?php endforeach; ?>

@@ -58,7 +58,7 @@ function getEarnings(year){
         var response = jQuery.parseJSON(data);
 
         var barChartData = {
-          labels : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
+          labels : ["Tháng một", "Tháng Hai", "Tháng Ba", "Tháng Bốn", "Tháng Năm", "Tháng Sáu", "Tháng Bảy", "Tháng Tám", "Tháng Chín", "Tháng Mười", "Tháng Mười Một", "Tháng Mười Hai"],
           datasets : [{
             fillColor : "rgba(255,255,255,1)", // bar color
             strokeColor : "rgba(151,187,205,0.8)", //hover color
@@ -121,7 +121,7 @@ function loadPaymentMethodChart(year){
                     value: 1,
                     color:"#4D5360",
                     highlight: "#616774",
-                    label: "No Payment"
+                    label: "Không có thanh toán"
                   }];
                 } 
 
@@ -130,7 +130,7 @@ function loadPaymentMethodChart(year){
                     value: cash,
                     color:"#084D5F",
                     highlight: "#0B6B85",
-                    label: "Cash Only"
+                    label: "Chỉ tiền mặt"
                   }, {
                     value: pos,
                     color: "#557f7c",
@@ -150,7 +150,7 @@ function loadPaymentMethodChart(year){
                   value: 1,
                   color:"#4D5360",
                   highlight: "#616774",
-                  label: "No Payment"
+                  label: "Không có thanh toán"
                 }];
             }
           

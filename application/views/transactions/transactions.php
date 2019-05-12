@@ -189,7 +189,7 @@ if(isset($items) && !empty($items)){
 
                     <div class="col-sm-4 form-inline form-group-sm">
                         <label for='transSearch'><i class="fa fa-search"></i></label>
-                        <input type="search" id="transSearch" class="form-control" placeholder="Search Transactions">
+                        <input type="search" id="transSearch" class="form-control" placeholder="Tìm kiếm giao dịch">
                     </div>
                 </div>
             </div>
