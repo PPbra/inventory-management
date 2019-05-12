@@ -43,10 +43,10 @@
                         <td class="<?=$get->quantity <= 10 ? 'bg-danger' : ($get->quantity <= 25 ? 'bg-warning' : '')?>">
                             <span id="itemQuantity-<?=$get->id?>"><?=$get->quantity?></span>
                         </td>
-                        <td>&#8358;<span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
+                        <td>VNĐ <span id="itemPrice-<?=$get->id?>"><?=number_format($get->unitPrice, 2)?></span></td>
                         <td><?=$this->genmod->gettablecol('transactions', 'SUM(quantity)', 'itemCode', $get->code)?></td>
                         <td>
-                            &#8358;<?=number_format($this->genmod->gettablecol('transactions', 'SUM(totalPrice)', 'itemCode', $get->code), 2)?>
+                            VNĐ <?=number_format($this->genmod->gettablecol('transactions', 'SUM(totalPrice)', 'itemCode', $get->code), 2)?>
                         </td>
                         <td><a class="pointer updateStock" id="stock-<?=$get->id?>">Chỉnh sửa số lượng</a></td>
                         <td class="text-center text-primary">

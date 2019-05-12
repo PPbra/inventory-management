@@ -12,7 +12,7 @@ $total_earned = 0;
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Transaction Report</title>
+        <title>Báo cáo giao dịch</title>
 		
         <!-- Favicon -->
         <link rel="shortcut icon" href="<?=base_url()?>public/images/icon.ico">
@@ -36,13 +36,13 @@ $total_earned = 0;
         <div class="container margin-top-5">
             <div class="row">
                 <div class="col-xs-12 text-right hidden-print">
-                    <button class="btn btn-primary btn-sm" onclick="window.print()">Print Report</button>
+                    <button class="btn btn-primary btn-sm" onclick="window.print()">In báo cáo</button>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <h4>Transactions Between <?=date('jS M, Y', strtotime($from))?> and <?=date('jS M, Y', strtotime($to))?></h4>
+                    <h4>Giao dịch : Trong khoảng <?=date('jS M, Y', strtotime($from))?> and <?=date('jS M, Y', strtotime($to))?></h4>
                 </div>
             </div>
             
@@ -51,23 +51,23 @@ $total_earned = 0;
                     <div class="panel panel-primary">
                         <!-- Default panel contents -->
                         <div class="panel-heading text-center">
-                            Transactions Between <?=date('jS M, Y', strtotime($from))?> and <?=date('jS M, Y', strtotime($to))?>
+                            Giao dịch : Trong khoảng <?=date('jS M, Y', strtotime($from))?> and <?=date('jS M, Y', strtotime($to))?>
                         </div>
                         <?php if($allTransactions): ?>
                         <div class="table table-responsive">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>SN</th>
-                                        <th>Receipt No</th>
-                                        <th>Total Items</th>
-                                        <th>Total Amount</th>
-                                        <th>Amount Tendered</th>
-                                        <th>Change Due</th>
-                                        <th>Mode of Payment</th>
-                                        <th>Staff</th>
-                                        <th>Customer</th>
-                                        <th>Date</th>
+                                        <th>STT</th>
+                                        <th>Mã giao dịch</th>
+                                        <th>Tổng sản phẩm</th>
+                                        <th>Tổng giá trị</th>
+                                        <th>Tổng giá trị thanh toán</th>
+                                        <th>Chênh lệch</th>
+                                        <th>Phương thức thanh toán</th>
+                                        <th>Nhân viên</th>
+                                        <th>Khách hàng</th>
+                                        <th>Thời gian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -77,10 +77,10 @@ $total_earned = 0;
                                         <th><?= $sn ?>.</th>
                                         <td><?= $get->ref ?></td>
                                         <td><?= $get->quantity ?></td>
-                                        <td>&#8358;<?= number_format($get->totalMoneySpent, 2) ?></td>
-                                        <td>&#8358;<?= number_format($get->amountTendered, 2) ?></td>
-                                        <td>&#8358;<?= number_format($get->changeDue, 2) ?></td>
-                                        <td><?=  str_replace("_", " ", $get->modeOfPayment)?></td>
+                                        <td><?= number_format($get->totalMoneySpent, 2) ?> VNĐ</td>
+                                        <td><?= number_format($get->amountTendered, 2) ?> VNĐ</td>
+                                        <td><?= number_format($get->changeDue, 2) ?> VNĐ</td>
+                                        <td><?=  str_replace("_", " ", "Thanh toán tiền mặt")?></td>
                                         <td><?=$get->staffName?></td>
                                         <td><?=$get->cust_name?> - <?=$get->cust_phone?> - <?=$get->cust_email?></td>
                                         <td><?= date('jS M, Y h:ia', strtotime($get->transDate)) ?></td>
@@ -93,7 +93,7 @@ $total_earned = 0;
                         </div>
                         <!-- table div end--->
                         <?php else: ?>
-                            <ul><li>No Transaction Found Within Specified Dates</li></ul>
+                            <ul><li>Không có giao dịch nào trong thời gian này</li></ul>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -101,11 +101,11 @@ $total_earned = 0;
             
             <div class="row" style="margin-bottom: 10px">
                 <div class="col-xs-6">
-                    <button class="btn btn-primary btn-sm hidden-print" onclick="window.print()">Print Report</button>
+                    <button class="btn btn-primary btn-sm hidden-print" onclick="window.print()">In báo cáo</button>
                 </div>
                 
                 <div class="col-xs-6 text-right">
-                    <h4>Total Earned: &#8358;<?=number_format($total_earned, 2)?></h4>
+                    <h4>Tống giá trị hàng đã bán ra: <?=number_format($total_earned, 2)?> VNĐ</h4>
                 </div>
             </div>
         </div>

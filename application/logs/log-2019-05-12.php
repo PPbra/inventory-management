@@ -29,3 +29,4 @@ ERROR - 2019-05-12 11:06:36 --> Severity: Warning --> count(): Parameter must be
 ERROR - 2019-05-12 12:28:33 --> Severity: error --> Exception: syntax error, unexpected '?>' C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\views\items\itemslisttable.php 7
 ERROR - 2019-05-12 12:28:35 --> Severity: error --> Exception: syntax error, unexpected '?>' C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\views\items\itemslisttable.php 7
 ERROR - 2019-05-12 12:28:36 --> Severity: error --> Exception: syntax error, unexpected '?>' C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\views\items\itemslisttable.php 7
+ERROR - 2019-05-12 13:01:37 --> Severity: Notice --> Undefined variable: transId C:\xampp\htdocs\mini-inventory-and-sales-management-system\application\controllers\Transactions.php 297

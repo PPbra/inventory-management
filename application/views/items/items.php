@@ -31,14 +31,14 @@ defined('BASEPATH') OR exit('');
                     <div class="col-sm-4 form-group-sm form-inline">
                         <label for="itemsListSortBy">Xắp xếp theo</label>
                         <select id="itemsListSortBy" class="form-control">
-                            <option value="name-ASC">Item Name (A-Z)</option>
-                            <option value="code-ASC">Item Code (Ascending)</option>
-                            <option value="unitPrice-DESC">Unit Price (Highest first)</option>
-                            <option value="quantity-DESC">Quantity (Highest first)</option>
-                            <option value="name-DESC">Item Name (Z-A)</option>
-                            <option value="code-DESC">Item Code (Descending)</option>
-                            <option value="unitPrice-ASC">Unit Price (lowest first)</option>
-                            <option value="quantity-ASC">Quantity (lowest first)</option>
+                            <option value="name-ASC">Tên (A-Z)</option>
+                            <option value="code-ASC">Mã (Ascending)</option>
+                            <option value="unitPrice-DESC">Đơn giá (Giảm dần)</option>
+                            <option value="quantity-DESC">Số lương (Giảm dần)</option>
+                            <option value="name-DESC">Tên (Z-A)</option>
+                            <option value="code-DESC">Mã (Descending)</option>
+                            <option value="unitPrice-ASC">Đơn giá (Tăng dần)</option>
+                            <option value="quantity-ASC">Số lượng (Tăng dần)</option>
                         </select>
                     </div>
 

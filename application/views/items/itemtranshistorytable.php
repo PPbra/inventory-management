@@ -6,14 +6,14 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>SN</th>
-                <th>ITEM CODE</th>
-                <th>ITEM NAME</th>
-                <th>DESCRIPTION</th>
-                <th>UNIT PRICE</th>
-                <th>QUANTITY IN STOCK</th>
-                <th>VIEW TRANSACTIONS</th>
-                <th>UPDATE</th>
+                <th>STT</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Chú thích</th>
+                <th>Đơn giá</th>
+                <th>Số lượng trong kho</th>
+                <th>Xem các giao dịch</th>
+                <th>Cập nhật</th>
             </tr>
         </thead>
         <tbody>

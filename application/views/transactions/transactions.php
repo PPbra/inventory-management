@@ -23,13 +23,13 @@ if(isset($items) && !empty($items)){
             <div class="row">
                 <div class="col-sm-3">
                     <span class="pointer text-primary">
-                        <button class='btn btn-primary btn-sm' id='showTransForm'><i class="fa fa-plus"></i> New Transaction </button>
+                        <button class='btn btn-primary btn-sm' id='showTransForm'><i class="fa fa-plus"></i> Thêm giao dịch </button>
                     </span>
                 </div>
                 <div class="col-sm-3">
                     <span class="pointer text-primary">
                         <button class='btn btn-primary btn-sm' data-toggle='modal' data-target='#reportModal'>
-                            <i class="fa fa-newspaper-o"></i> Generate Report 
+                            <i class="fa fa-newspaper-o"></i> Xuất báo cáo giao dịch
                         </button>
                     </span>
                 </div>
@@ -54,7 +54,7 @@ if(isset($items) && !empty($items)){
                                     <!--- Text to click to add another item to transaction-->
                                     <div class="row">
                                         <div class="col-sm-2 text-primary pointer">
-                                            <button class="btn btn-primary btn-sm" id="clickToClone"><i class="fa fa-plus"></i> Add item</button>
+                                            <button class="btn btn-primary btn-sm" id="clickToClone"><i class="fa fa-plus"></i> Chọn/thêm sản phẩm</button>
                                         </div>
                                         
                                         <br class="visible-xs">
@@ -74,22 +74,20 @@ if(isset($items) && !empty($items)){
                                         </div>
                                         
                                         <div class="col-sm-3 form-group-sm">
-                                            <label for="discount">Discount(%)</label>
+                                            <label for="discount">Giảm giá(%)</label>
                                             <input type="number" min="0" id="discount" class="form-control" value="0">
                                         </div>
                                         
                                         <div class="col-sm-3 form-group-sm">
-                                            <label for="discount">Discount(value)</label>
+                                            <label for="discount">Giảm giá(VNĐ)</label>
                                             <input type="number" min="0" id="discountValue" class="form-control" value="0">
                                         </div>
                                         
                                         <div class="col-sm-3 form-group-sm">
-                                            <label for="modeOfPayment">Mode of Payment</label>
+                                            <label for="modeOfPayment">Phương thức thanh toán</label>
                                             <select class="form-control checkField" id="modeOfPayment">
                                                 <option value="">---</option>
-                                                <option value="Cash">Cash</option>
-                                                <option value="POS">POS</option>
-                                                <option value="Cash and POS">Cash and POS</option>
+                                                <option value="Cash">Tiền mặt</option>
                                             </select>
                                             <span class="help-block errMsg" id="modeOfPaymentErr"></span>
                                         </div>
@@ -97,49 +95,39 @@ if(isset($items) && !empty($items)){
                                         
                                     <div class="row">
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="cumAmount">Cumulative Amount</label>
+                                            <label for="cumAmount">Tổng giá trị hàng</label>
                                             <span id="cumAmount" class="form-control">0.00</span>
                                         </div>
                                         
                                         <div class="col-sm-4 form-group-sm">
-                                            <div class="cashAndPos hidden">
-                                                <label for="cashAmount">Cash</label>
-                                                <input type="text" class="form-control" id="cashAmount">
-                                                <span class="help-block errMsg"></span>
-                                            </div>
-
-                                            <div class="cashAndPos hidden">
-                                                <label for="posAmount">POS</label>
-                                                <input type="text" class="form-control" id="posAmount">
-                                                <span class="help-block errMsg"></span>
-                                            </div>
+                                            
 
                                             <div id="amountTenderedDiv">
-                                                <label for="amountTendered" id="amountTenderedLabel">Amount Tendered</label>
+                                                <label for="amountTendered" id="amountTenderedLabel">Tổng giá bán (Lớn hơn tổng giá trị hàng)</label>
                                                 <input type="text" class="form-control" id="amountTendered">
                                                 <span class="help-block errMsg" id="amountTenderedErr"></span>
                                             </div>
                                         </div>
                                         
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="changeDue">Change Due</label>
+                                            <label for="changeDue">Chênh lệch</label>
                                             <span class="form-control" id="changeDue"></span>
                                         </div>
                                     </div>
                                         
                                     <div class="row">
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="custName">Customer Name</label>
+                                            <label for="custName">Tên khách hàng</label>
                                             <input type="text" id="custName" class="form-control" placeholder="Name">
                                         </div>
                                         
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="custPhone">Customer Phone</label>
+                                            <label for="custPhone">Số điện thoại khách hàng</label>
                                             <input type="tel" id="custPhone" class="form-control" placeholder="Phone Number">
                                         </div>
                                         
                                         <div class="col-sm-4 form-group-sm">
-                                            <label for="custEmail">Customer Email</label>
+                                            <label for="custEmail">Email khách hàng</label>
                                             <input type="email" id="custEmail" class="form-control" placeholder="E-mail Address">
                                         </div>
                                     </div>
@@ -149,15 +137,14 @@ if(isset($items) && !empty($items)){
                             <br>
                             <div class="row">
                                 <div class="col-sm-2 form-group-sm">
-                                    <button class="btn btn-primary btn-sm" id='useScanner'>Use Barcode Scanner</button>
                                 </div>
                                 <br class="visible-xs">
                                 <div class="col-sm-6"></div>
                                 <br class="visible-xs">
                                 <div class="col-sm-4 form-group-sm">
-                                    <button type="button" class="btn btn-primary btn-sm" id="confirmSaleOrder">Confirm Order</button>
-                                    <button type="button" class="btn btn-danger btn-sm" id="cancelSaleOrder">Clear Order</button>
-                                    <button type="button" class="btn btn-danger btn-sm" id="hideTransForm">Close</button>
+                                    <button type="button" class="btn btn-primary btn-sm" id="confirmSaleOrder">Xác nhận giao dịch</button>
+                                    <button type="button" class="btn btn-danger btn-sm" id="cancelSaleOrder">Reset giao dịch</button>
+                                    <button type="button" class="btn btn-danger btn-sm" id="hideTransForm">Đóng</button>
                                 </div>
                             </div>
                         </form><!-- end of form-->
@@ -172,7 +159,7 @@ if(isset($items) && !empty($items)){
             <div class="row">
                 <div class="col-sm-12">
                     <div class="col-sm-3 form-inline form-group-sm">
-                        <label for="transListPerPage">Per Page</label>
+                        <label for="transListPerPage">Trên một trang</label>
                         <select id="transListPerPage" class="form-control">
                             <option value="1">1</option>
                             <option value="5">5</option>
@@ -187,16 +174,16 @@ if(isset($items) && !empty($items)){
                     </div>
 
                     <div class="col-sm-5 form-group-sm form-inline">
-                        <label for="transListSortBy">Sort by</label>
+                        <label for="transListSortBy">Xắp xếp theo</label>
                         <select id="transListSortBy" class="form-control">
-                            <option value="transId-DESC">date(Latest First)</option>
-                            <option value="transId-ASC">date(Oldest First)</option>
-                            <option value="quantity-DESC">Quantity (Highest first)</option>
-                            <option value="quantity-ASC">Quantity (Lowest first)</option>
-                            <option value="totalPrice-DESC">Total Price (Highest first)</option>
-                            <option value="totalPrice-ASC">Total Price (Lowest first)</option>
-                            <option value="totalMoneySpent-DESC">Total Amount Spent (Highest first)</option>
-                            <option value="totalMoneySpent-ASC">Total Amount Spent (Lowest first)</option>
+                            <option value="transId-DESC">Thời gian(Gần nhất)</option>
+                            <option value="transId-ASC">Thời gian(Muộn nhất)</option>
+                            <option value="quantity-DESC">Số lượng(Giảm dần)</option>
+                            <option value="quantity-ASC">Số lượng(Tăng dần)</option>
+                            <option value="totalPrice-DESC">Tổng giá (Giảm dần)</option>
+                            <option value="totalPrice-ASC">Tổng giá (Tăng dần)</option>
+                            <option value="totalMoneySpent-DESC">Tổng giá trị bán (Giảm dần)</option>
+                            <option value="totalMoneySpent-ASC">Tổng giá trị bán (Tăng dần)</option>
                         </select>
                     </div>
 
@@ -224,28 +211,28 @@ if(isset($items) && !empty($items)){
 
 <div class="row hidden" id="divToClone">
     <div class="col-sm-4 form-group-sm">
-        <label>Item</label>
+        <label>Sản phẩm</label>
         <select class="form-control selectedItemDefault" onchange="selectedItem(this)"></select>
     </div>
 
     <div class="col-sm-2 form-group-sm itemAvailQtyDiv">
-        <label>Available Quantity</label>
+        <label>Số lượng còn</label>
         <span class="form-control itemAvailQty">0</span>
     </div>
 
     <div class="col-sm-2 form-group-sm">
-        <label>Unit Price</label>
+        <label>Đơn giá</label>
         <span class="form-control itemUnitPrice">0.00</span>
     </div>
 
     <div class="col-sm-1 form-group-sm itemTransQtyDiv">
-        <label>Quantity</label>
+        <label>Số lượng giao dịch</label>
         <input type="number" min="0" class="form-control itemTransQty" value="0">
         <span class="help-block itemTransQtyErr errMsg"></span>
     </div>
 
     <div class="col-sm-2 form-group-sm">
-        <label>Total Price</label>
+        <label>Tổng giá trị</label>
         <span class="form-control itemTotalPrice">0.00</span>
     </div>
     
@@ -264,29 +251,29 @@ if(isset($items) && !empty($items)){
         <div class="modal-content">
             <div class="modal-header">
                 <div class="close" data-dismiss='modal'>&times;</div>
-                <h4 class="text-center">Generate Report</h4>
+                <h4 class="text-center">Xuất báo cáo</h4>
             </div>
             
             <div class="modal-body">
                 <div class="row" id="datePair">
                     <div class="col-sm-6 form-group-sm">
-                        <label class="control-label">From Date</label>                                    
+                        <label class="control-label">Từ ngày</label>                                    
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span><i class="fa fa-calendar"></i></span>
                             </div>
-                            <input type="text" id='transFrom' class="form-control date start" placeholder="YYYY-MM-DD">
+                            <input type="text"  id='transFrom' class="form-control date start" placeholder="Năm-Tháng-Ngày">
                         </div>
                         <span class="help-block errMsg" id='transFromErr'></span>
                     </div>
 
                     <div class="col-sm-6 form-group-sm">
-                        <label class="control-label">To Date</label>
+                        <label class="control-label">Đến ngày</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <span><i class="fa fa-calendar"></i></span>
                             </div>
-                            <input type="text" id='transTo' class="form-control date end" placeholder="YYYY-MM-DD">
+                            <input type="text"  id='transTo' class="form-control date end" placeholder="Năm-Tháng-Ngày">
                         </div>
                         <span class="help-block errMsg" id='transToErr'></span>
                     </div>
@@ -294,8 +281,8 @@ if(isset($items) && !empty($items)){
             </div>
             
             <div class="modal-footer">
-                <button class="btn btn-success" id='clickToGen'>Generate</button>
-                <button class="btn btn-danger" data-dismiss='modal'>Close</button>
+                <button class="btn btn-success" id='clickToGen'>Xuất</button>
+                <button class="btn btn-danger" data-dismiss='modal'>Đóng</button>
             </div>
         </div>
     </div>

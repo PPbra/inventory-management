@@ -197,7 +197,7 @@ $(document).ready(function(){
              * hide "cash" an "pos" fields
              * 
              */
-            $("#amountTenderedLabel").html("Amount Tendered");
+            $("#amountTenderedLabel").html("Tổng giá bán (Lớn hơn tổng giá trị hàng)");
             $("#amountTendered").val($("#cumAmount").html()).prop('disabled', true);
             $("#changeDue").html('0.00');
             $(".cashAndPos").addClass('hidden');
@@ -223,7 +223,7 @@ $(document).ready(function(){
              * unset any value that might be in "changeDue"
              * hide "cash" an "pos" fields
              */
-            $("#amountTenderedLabel").html("Amount Tendered");
+            $("#amountTenderedLabel").html("Tổng giá bán (Lớn hơn tổng giá trị hàng)");
             $("#amountTendered").val('').prop('disabled', false);
             $("#changeDue").html('');
             $(".cashAndPos").addClass('hidden');
